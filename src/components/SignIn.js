@@ -4,12 +4,21 @@ import { withRouter } from 'react-router-dom';
 import { SignUpLink } from './SignUp';
 import { auth } from '../firebase';
 import * as routes from '../constants/routes';
+import { FormControl, FormGroup, Button, Grid, Row, Col } from 'react-bootstrap';
+
 
 const SignInPage = ({ history }) =>
   <div>
-    <h1>SignIn</h1>
-    <SignInForm history={history} />
-    <SignUpLink />
+    <Grid>
+      <Row className="show-grid">
+        <Col xs={3} xsOffset={9}>
+          <h1>Sign In</h1>
+          <SignInForm history={history} />
+          <br />
+          <SignUpLink />
+        </Col>
+      </Row>
+    </Grid>
   </div>
 
 const byPropKey = (propertyName, value) => () => ({
@@ -63,23 +72,32 @@ class SignInForm extends Component {
       email === '';
 
     return (
+      
       <form onSubmit={this.onSubmit}>
-        <input
-          value={email}
-          onChange={event => this.setState(byPropKey('email', event.target.value))}
-          type="text"
-          placeholder="Email Address"
-        />
-        <input
-          value={password}
-          onChange={event => this.setState(byPropKey('password', event.target.value))}
-          type="password"
-          placeholder="Password"
-        />
-        <button disabled={isInvalid} type="submit">
-          Sign In
-        </button>
-
+        <FormGroup>
+          <FormControl
+            type="text"
+            label="Email Address"
+            placeholder="Email Address"
+            value={email}
+            onChange={event => this.setState(byPropKey('email', event.target.value))}
+          />
+        </FormGroup>
+        <FormGroup>
+          <FormControl
+            label="Password"
+            value={password}
+            onChange={event => this.setState(byPropKey('password', event.target.value))}
+            type="password"
+            placeholder="Password"
+          />
+        </FormGroup>
+        <Button 
+          disabled={isInvalid} 
+          type="submit"
+          bsStyle="primary">
+            Sign In
+        </Button>
         { error && <p>{error.message}</p> }
       </form>
     );

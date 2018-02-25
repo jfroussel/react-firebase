@@ -8,6 +8,9 @@ import SignInPage from './SignIn';
 import PasswordForgetPage from './PasswordForget';
 import HomePage from './Home';
 import AccountPage from './Account';
+import GetStarted from './GetStarted';
+import Documentation from './Documentation';
+import Api from './Api';
 
 import * as routes from '../constants/routes';
 
@@ -60,6 +63,19 @@ class App extends Component {
             exact path={routes.ACCOUNT}
             component={() => <AccountPage />}
           />
+          <Route
+            exact path={routes.GET_STARTED}
+            component={() => <GetStarted />}
+          />
+          <Route
+            exact path={routes.DOCUMENTATION}
+            component={() => <Documentation />}
+          />
+          <Route
+            exact path={routes.API}
+            component={() => <Api />}
+          />
+
         </div>
       </Router>
     )

@@ -1,14 +1,21 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { auth } from '../firebase';
+import { Grid, Row, Col, FormControl, FormGroup, Button } from 'react-bootstrap';
 
 import * as routes from '../constants/routes';
 
 
 const SignUpPage = ({ history}) =>
   <div>
-    <h1>Sign up Page</h1>
-    <SignUpForm history={history} />
+    <Grid>
+      <Row className="show-grid">
+        <Col xs={3} xsOffset={9}>
+          <h1>Sign up Page</h1>
+          <SignUpForm history={history} />
+        </Col>
+      </Row>
+    </Grid>
   </div>
 
 const INITIAL_STATE = {
@@ -70,35 +77,45 @@ class SignUpForm extends Component {
 
     return ( 
       <form onSubmit={this.onSubmit}>
-        <input
-          value={username}
-          onChange={event => this.setState(byPropKey('username', event.target.value))}
-          type="text"
-          placeholder="Full Name"
-        />
-        <input
+        <FormGroup>
+          <FormControl
+            value={username}
+            onChange={event => this.setState(byPropKey('username', event.target.value))}
+            type="text"
+            placeholder="Full Name"
+          />
+        </FormGroup>
+        <FormGroup>
+          <FormControl
           value={email}
           onChange={event => this.setState(byPropKey('email', event.target.value))}
           type="text"
           placeholder="Email Address"
-        />
-        <input
-          value={passwordOne}
-          onChange={event => this.setState(byPropKey('passwordOne', event.target.value))}
-          type="password"
-          placeholder="Password"
-        />
-        <input
-          value={passwordTwo}
-          onChange={event => this.setState(byPropKey('passwordTwo', event.target.value))}
-          type="password"
-          placeholder="Confirm Password"
-        />
-        <button disabled={isInvalid} type="submit">
-          Sign Up
-        </button>
-
-        { error && <p>{error.message}</p> }
+          />
+        </FormGroup>
+        <FormGroup>
+          <FormControl
+            value={passwordOne}
+            onChange={event => this.setState(byPropKey('passwordOne', event.target.value))}
+            type="password"
+            placeholder="Password"
+          />
+        </FormGroup>
+        <FormGroup>
+          <FormControl
+            value={passwordTwo}
+            onChange={event => this.setState(byPropKey('passwordTwo', event.target.value))}
+            type="password"
+            placeholder="Confirm Password"
+          />
+          </FormGroup>
+          <Button 
+            disabled={isInvalid} 
+            type="submit"
+            bsStyle="primary">
+              Sign Up
+          </Button>
+          { error && <p>{error.message}</p> }
       </form>
      )
   }
