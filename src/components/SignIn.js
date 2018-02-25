@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-
+import { PasswordForgetLink } from './PasswordForget';
 import { SignUpLink } from './SignUp';
 import { auth } from '../firebase';
 import * as routes from '../constants/routes';
@@ -14,6 +14,8 @@ const SignInPage = ({ history }) =>
         <Col xs={3} xsOffset={9}>
           <h1>Sign In</h1>
           <SignInForm history={history} />
+          <br />
+          <PasswordForgetLink />
           <br />
           <SignUpLink />
         </Col>

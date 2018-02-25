@@ -125,7 +125,7 @@ const SignUpLink = () =>
   <p>
     Don't have an account ?
     {' '}
-    <Link to={routes.SIGN_UP}>Sign Up</Link>
+    <Link to={routes.SIGN_UP} className="link">Sign Up</Link>
   </p>  
  
 
