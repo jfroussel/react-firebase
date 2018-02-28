@@ -1,17 +1,48 @@
-import React from 'react';
-import { Carousel } from 'react-bootstrap';
+import React, { Component } from 'react';
+import * as firebase from 'firebase';
 
-const LandingPage = () =>
-  <div>
-    <Carousel>
-      <Carousel.Item>
-        <img width={900} height={500} alt="900x500" src="home.jpg" />
-        <Carousel.Caption>
-          <h3>Welcome on React-firebase</h3>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-        </Carousel.Caption>
-      </Carousel.Item>
-    </Carousel>;
-  </div>
+class LandingPage extends Component {
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      title:'Companies list ...'
+    }
+  }
+
+  componentWillMount() {
+
+    const database = firebase.database();
+    const ref = database.ref('companies');
+
+    ref.on('value', snap => {
+      this.setState({
+        companies:snap.val()
+      })
+    })
+    
+  }
+
+  render() {
+
+    const cies = this.state.companies.map((cie, i) => <h4 key={i}>{ cie.name }</h4>)
+
+    return (
+      <div>
+        <h3>Welcome on React-firebase</h3>
+        <h4>{this.state.title}</h4>
+        <hr />
+          {cies}
+      </div>
+    )
+
+   
+     
+    
+  }
+
+  
+}
 
 export default LandingPage;

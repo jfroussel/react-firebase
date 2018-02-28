@@ -1,0 +1,147 @@
+{
+    "companies":[
+		{
+            "name": "Et Corp.",
+            "address": "4539 Est Rd.",
+            "postalCode": "48143",
+            "city": "Trivigno",
+            "country": "Faroe Islands",
+            "location": "68.6914, -51.11701",
+            "siret": "854724762",
+            "phone": "05 48 24 74 81",
+            "email": "rutrum@volutpatornarefacilisis.ca"
+        },
+        {
+            "name": "Lacinia Vitae Sodales Inc.",
+            "address": "Ap #996-6733 Aliquam Rd.",
+            "postalCode": "L2B 5H0",
+            "city": "Ipís",
+            "country": "South Georgia and The South Sandwich Islands",
+            "location": "9.07725, 95.97704",
+            "siret": "790046767",
+            "phone": "06 07 47 54 47",
+            "email": "vitae@lobortis.org"
+        },
+        {
+            "name": "Consequat Institute",
+            "address": "P.O. Box 806, 5781 Ac, Rd.",
+            "postalCode": "44385",
+            "city": "Cisnes",
+            "country": "Togo",
+            "location": "65.25594, -38.4948",
+            "siret": "014566244",
+            "phone": "06 92 67 50 45",
+            "email": "libero.Proin.mi@velsapienimperdiet.co.uk"
+        },
+        {
+            "name": "Ornare Lectus Associates",
+            "address": "153 Arcu Street",
+            "postalCode": "25931",
+            "city": "Maasmechelen",
+            "country": "Holy See (Vatican City State)",
+            "location": "-69.21851, -167.91998",
+            "siret": "889958161",
+            "phone": "02 36 85 20 79",
+            "email": "ac@cursusvestibulumMauris.com"
+        },
+        {
+            "name": "Semper Consulting",
+            "address": "Ap #289-4191 Sit Ave",
+            "postalCode": "145616",
+            "city": "Monghidoro",
+            "country": "Croatia",
+            "location": "7.8124, -35.95586",
+            "siret": "757018833",
+            "phone": "07 69 13 82 27",
+            "email": "quis@vulputatevelit.net"
+        },
+        {
+            "name": "Malesuada Malesuada Integer Foundation",
+            "address": "1595 Porttitor Ave",
+            "postalCode": "804806",
+            "city": "Allumiere",
+            "country": "Mozambique",
+            "location": "-3.26166, 63.11155",
+            "siret": "141806489",
+            "phone": "09 24 31 96 32",
+            "email": "Aliquam@semper.edu"
+        },
+        {
+            "name": "Mollis Dui In Corporation",
+            "address": "P.O. Box 602, 6114 Ridiculus Ave",
+            "postalCode": "N3C 3C0",
+            "city": "Millport",
+            "country": "Israel",
+            "location": "-76.12891, -83.75263",
+            "siret": "799983127",
+            "phone": "04 73 60 60 69",
+            "email": "ipsum.dolor@maurisa.org"
+        },
+        {
+            "name": "Nunc Quis Arcu Incorporated",
+            "address": "P.O. Box 515, 2877 Felis St.",
+            "postalCode": "53912-332",
+            "city": "Sagrada Familia",
+            "country": "Comoros",
+            "location": "-34.9265, 168.69126",
+            "siret": "563158690",
+            "phone": "09 31 47 17 53",
+            "email": "metus@loremauctorquis.org"
+        },
+        {
+            "name": "Vitae PC",
+            "address": "P.O. Box 302, 4011 Nibh Rd.",
+            "postalCode": "2171",
+            "city": "Woutersbrakel",
+            "country": "France",
+            "location": "-25.43515, -149.66422",
+            "siret": "320365331",
+            "phone": "02 83 47 12 65",
+            "email": "Maecenas.libero.est@atsem.edu"
+        },
+        {
+            "name": "Lorem Vitae Ltd",
+            "address": "573 Eu Road",
+            "postalCode": "07973-947",
+            "city": "LaSalle",
+            "country": "Kiribati",
+            "location": "-42.25279, 161.92625",
+            "siret": "334289972",
+            "phone": "02 43 19 69 08",
+            "email": "fringilla.purus@loremacrisus.net"
+        },
+        {
+            "name": "Vestibulum Ante Ipsum LLC",
+            "address": "598-6985 Elementum St.",
+            "postalCode": "7386",
+            "city": "Bourlers",
+            "country": "Congo, the Democratic Republic of the",
+            "location": "-76.26234, 142.13418",
+            "siret": "364545392",
+            "phone": "08 01 27 40 79",
+            "email": "sodales@massa.org"
+        },
+        {
+            "name": "Aliquam Adipiscing Lacus Consulting",
+            "address": "P.O. Box 182, 7809 Et St.",
+            "postalCode": "828348",
+            "city": "Ragogna",
+            "country": "Philippines",
+            "location": "61.16299, 41.53386",
+            "siret": "455699314",
+            "phone": "08 54 93 25 63",
+            "email": "mi@senectus.com"
+        },
+        {
+            "name": "Tincidunt LLP",
+            "address": "Ap #777-6319 Ad St.",
+            "postalCode": "52226",
+            "city": "Neerharen",
+            "country": "Sint Maarten",
+            "location": "29.9248, 118.03651",
+            "siret": "555284520",
+            "phone": "07 94 76 97 06",
+            "email": "diam@augueeu.com"
+        }
+    ]
+}

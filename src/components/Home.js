@@ -1,8 +1,28 @@
 import React from 'react';
 
-const HomePage = () =>
-  <div>
-    <h1>Home Page</h1>
-  </div>
+class HomePage extends React.Component {
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+
+    }
+  }
+
+ 
+  render() {
+    return (
+      <div>
+        <h1>Home Page</h1>
+        <hr />
+      </div>
+    );
+  }
+}
+
+
+
+
 
 export default HomePage;
