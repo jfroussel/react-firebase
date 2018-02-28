@@ -6,23 +6,20 @@ class HomePage extends React.Component {
     super(props);
 
     this.state = {
-
+      title:'Welcome on Home page ...'
     }
   }
 
  
   render() {
     return (
-      <div>
-        <h1>Home Page</h1>
+      <div className="container">
+        <h3>{ this.state.title }</h3>
         <hr />
       </div>
     );
   }
 }
-
-
-
 
 
 export default HomePage;

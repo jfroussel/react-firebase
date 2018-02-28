@@ -12,6 +12,12 @@ import AccountPage from './Account';
 import GetStarted from './GetStarted';
 import Documentation from './Documentation';
 import Api from './Api';
+import Corporate from './corporate/corporate';
+import Contacts from './corporate/contacts';
+import Companies from './corporate/companies';
+import Opportunities from './corporate/opportunities';
+import Projects from './corporate/projects';
+import Tasks from './corporate/tasks';
 
 import * as routes from '../constants/routes';
 
@@ -75,6 +81,30 @@ class App extends Component {
           <Route
             exact path={routes.API}
             component={() => <Api />}
+          />
+          <Route
+            exact path={routes.CORPORATE}
+            component={() => <Corporate />}
+          />
+          <Route
+            exact path={routes.COMPANIES}
+            component={() => <Companies />}
+          />
+           <Route
+            exact path={routes.CONTACTS}
+            component={() => <Contacts />}
+          />
+           <Route
+            exact path={routes.OPPORTUNITIES}
+            component={() => <Opportunities />}
+          />
+           <Route
+            exact path={routes.PROJECTS}
+            component={() => <Projects />}
+          />
+           <Route
+            exact path={routes.TASKS}
+            component={() => <Tasks />}
           />
 
         </div>

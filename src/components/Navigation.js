@@ -28,15 +28,20 @@ const NavigationAuth = () =>
     </Navbar.Header>
     <Navbar.Collapse>
       <Nav>
-        <NavItem eventKey={1}>
+        <NavItem>
           <Link to={routes.HOME}>Home</Link>
         </NavItem>
       </Nav>
+      <Nav>
+        <NavItem>
+          <Link to={routes.CORPORATE}>Corporate</Link>
+        </NavItem>
+      </Nav>
       <Nav pullRight>
-        <NavItem eventKey={2}>
+        <NavItem>
           <Link to={routes.ACCOUNT}>Account</Link>
         </NavItem>
-        <NavItem eventKey={3}>
+        <NavItem>
           <SignOutButton />
         </NavItem>
       </Nav>
@@ -54,22 +59,22 @@ const NavigationNonAuth = () =>
     </Navbar.Header>
     <Navbar.Collapse>
       <Nav>
-        <NavItem eventKey={1}>
+        <NavItem>
           <Link to={routes.GET_STARTED}>Get started</Link>
         </NavItem>
       </Nav>
       <Nav>
-        <NavItem eventKey={2}>
+        <NavItem>
           <Link to={routes.DOCUMENTATION}>Documentation</Link>
         </NavItem>
       </Nav>
       <Nav>
-        <NavItem eventKey={2}>
+        <NavItem>
           <Link to={routes.API}>Api</Link>
         </NavItem>
       </Nav>
       <Nav pullRight>
-        <NavItem eventKey={1}>
+        <NavItem>
           <Link to={routes.SIGN_IN}>Sign In</Link>
         </NavItem>
       </Nav>
