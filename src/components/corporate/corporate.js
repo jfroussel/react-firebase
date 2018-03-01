@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import  '../../index.css';
 import * as routes from '../../constants/routes';
-import { Grid, Col, Image, Row} from 'react-bootstrap';
+import { Grid, Col, Image, Row, Popover, OverlayTrigger} from 'react-bootstrap';
 import imgCompanies from '../../img/city.png';
 import imgContacts from '../../img/people.png';
 import imgOpportunities from '../../img/opportunities.png';
@@ -16,39 +16,48 @@ class Corporate extends Component {
         super(props);
 
         this.state = {
-            title:'Welcome on Corporate page ...'
+            title:'Welcome to the Corporate page ...'
            
         };
         
     }
 
+    
     render() {
-
+        
         return (
             <div className="container">
                 <Grid>
                     <Row>
-                        <Col xs={6} md={2}>
+                        <Col xs={12} md={2}>
+                       
                         <Link to={routes.COMPANIES}> 
-                            <Image src={imgCompanies} circle />
+                        <OverlayTrigger
+                            trigger={['hover', 'focus']}
+                            placement="bottom"
+                            overlay={popoverHoverFocus}
+                        >
+                            <Image src={imgCompanies} circle/>
+                        </OverlayTrigger>
                         </Link>
+                        
                         </Col>
-                        <Col xs={6} md={2}>
+                        <Col xs={12} md={2}>
                         <Link to={routes.CONTACTS}>
                             <Image src={imgContacts} circle />
                         </Link>
                         </Col>
-                        <Col xs={6} md={2}>
+                        <Col xs={12} md={2}>
                         <Link to={routes.OPPORTUNITIES}>
                             <Image src={imgOpportunities} circle />
                         </Link>
                         </Col>
-                        <Col xs={6} md={2}>
+                        <Col xs={12} md={2}>
                         <Link to={routes.PROJECTS}>
                             <Image src={imgProjects} circle />
                         </Link>
                         </Col>
-                        <Col xs={6} md={2}>
+                        <Col xs={12} md={2}>
                         <Link to={routes.TASKS}>
                             <Image src={imgTasks} circle />
                         </Link>
@@ -59,9 +68,14 @@ class Corporate extends Component {
                 <h3>{ this.state.title }</h3>
                 <hr />
             </div> 
-
         )
     }
 }
+
+const popoverHoverFocus = (
+    <Popover id="popover-trigger-hover-focus" title >
+        <strong>Click to go there !.</strong> 
+    </Popover>
+);
 
 export default Corporate;

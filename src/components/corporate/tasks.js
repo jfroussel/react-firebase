@@ -8,7 +8,7 @@ class Tasks extends Component {
         super(props);
 
         this.state = {
-            title:'Welcome on tasks page ...'
+            title:'Welcome to the tasks page ...'
         };
         
     }
@@ -16,7 +16,7 @@ class Tasks extends Component {
     render() {
 
         return (
-            <div className="container">
+            <div className="container-fluid">
             <Image src={imgTasks} circle/>
                 <h3>{ this.state.title }</h3>
             </div>    

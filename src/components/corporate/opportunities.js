@@ -8,7 +8,7 @@ class Opportunities extends Component {
         super(props);
 
         this.state = {
-            title:'Welcome on opportunities page ...'
+            title:'Welcome to the opportunities page ...'
         };
         
     }
@@ -16,7 +16,7 @@ class Opportunities extends Component {
     render() {
 
         return (
-            <div className="container">
+            <div className="container-fluid">
             <Image src={imgOpportunities} circle/>
                 <h3>{ this.state.title }</h3>
             </div>        
