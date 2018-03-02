@@ -26,8 +26,8 @@ class Corporate extends Component {
     render() {
         
         return (
-            <div className="container">
-                <Grid>
+            <div className="container-fluid">
+                <Grid fluid>
                     <Row>
                         <Col xs={12} md={2}>
                        
