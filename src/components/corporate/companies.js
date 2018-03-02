@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import firebase from 'firebase';
 import { Grid, Row, Col, Button, Modal } from 'react-bootstrap';
 import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
-
-
+import Sidebar from '../Sidebar';
 
 
 class Companies extends Component {
@@ -25,6 +24,7 @@ class Companies extends Component {
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+
         // handle add new company Modal
         this.handleShow = this.handleShow.bind(this);
         this.handleClose = this.handleClose.bind(this);
@@ -104,8 +104,6 @@ class Companies extends Component {
             alert('The rowkey you drop: ' + rowKeys);
 
         }
-        
-       
           
         const options = {
             afterDeleteRow: onAfterDeleteRow  // A hook for after droping rows.
@@ -114,74 +112,74 @@ class Companies extends Component {
         
         return (
             <div>
-            <Modal show={this.state.show} onHide={this.handleClose}>
-                <Modal.Header closeButton>
-                    <Modal.Title>Add new company</Modal.Title>
-                </Modal.Header>
-                    <Modal.Body>
-                    <form onSubmit={this.handleSubmit}>
-                        <div class="form-group">
-                            <input type="text" name="name" className="form-control" placeholder="Name" onChange={this.handleChange} value={this.state.name} />
-                        </div>
-                        <div class="form-group">
-                            <input type="text" name="siret" className="form-control" placeholder="Siret" onChange={this.handleChange} value={this.state.siret} />
-                        </div>
-                        <div class="form-group">
-                            <input type="text" name="address" className="form-control" placeholder="Address" onChange={this.handleChange} value={this.state.address} />
-                        </div>
-                        <div class="form-group">
-                            <input type="text" name="postalCode" className="form-control" placeholder="Postal code" onChange={this.handleChange} value={this.state.postalCode} />
-                        </div>
-                        <div class="form-group">
-                            <input type="text" name="city" className="form-control" placeholder="City" onChange={this.handleChange} value={this.state.city} />
-                        </div>
-                        <div class="form-group">
-                            <input type="text" name="country" className="form-control" placeholder="Country" onChange={this.handleChange} value={this.state.country} />
-                        </div>
-                        <button className="btn btn-primary" onClick={this.handleClose}>Save</button>
-                    </form>
-                    </Modal.Body>
-                <Modal.Footer>
-                    <Button onClick={this.handleClose}>Close</Button>
-                </Modal.Footer>
-            </Modal>
-
-            <div className="container-fluid">
-                <h3>{ this.state.title }</h3>
-                <hr />
-                
-                <Grid fluid>
-                    <Row className="show-grid">
-                        <Col xs={12} md={12}>
-                        <div className="container-fluid">
-                            <h4>Companies list ...</h4>
-                            <Button bsStyle="primary" onClick={this.handleShow}>Add new company</Button>
-                            <hr />
-                            <BootstrapTable data={this.state.items} 
-                                striped 
-                                hover 
-                                pagination 
-                                selectRow={ selectRowProp } 
-                                deleteRow={ true } 
-                                options={ options }
-                                search={ true } 
-                                multiColumnSearch={ true }
-                                
-                                >
-                                <TableHeaderColumn isKey dataField='id' hidden>ID</TableHeaderColumn>
-                                <TableHeaderColumn dataField='name' dataSort={true}>Name</TableHeaderColumn>
-                                <TableHeaderColumn dataField='siret'>Siret</TableHeaderColumn>
-                                <TableHeaderColumn dataField='address'> Address</TableHeaderColumn>
-                                <TableHeaderColumn dataField='postalCode' dataSort={true}>Postal code</TableHeaderColumn>
-                                <TableHeaderColumn dataField='city' dataSort={true}>City</TableHeaderColumn>
-                                <TableHeaderColumn dataField='country' dataSort={true}>Country</TableHeaderColumn>
-                                <TableHeaderColumn dataField=''>actions</TableHeaderColumn>
-                            </BootstrapTable>
-                        </div>
-                        </Col>
-                    </Row>
-                </Grid>
-            </div> 
+                <Modal show={this.state.show} onHide={this.handleClose}>
+                    <Modal.Header closeButton>
+                        <Modal.Title>Add new company</Modal.Title>
+                    </Modal.Header>
+                        <Modal.Body>
+                        <form onSubmit={this.handleSubmit}>
+                            <div class="form-group">
+                                <input type="text" name="name" className="form-control" placeholder="Name" onChange={this.handleChange} value={this.state.name} />
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="siret" className="form-control" placeholder="Siret" onChange={this.handleChange} value={this.state.siret} />
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="address" className="form-control" placeholder="Address" onChange={this.handleChange} value={this.state.address} />
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="postalCode" className="form-control" placeholder="Postal code" onChange={this.handleChange} value={this.state.postalCode} />
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="city" className="form-control" placeholder="City" onChange={this.handleChange} value={this.state.city} />
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="country" className="form-control" placeholder="Country" onChange={this.handleChange} value={this.state.country} />
+                            </div>
+                            <button className="btn btn-primary" onClick={this.handleClose}>Save</button>
+                        </form>
+                        </Modal.Body>
+                    <Modal.Footer>
+                        <Button onClick={this.handleClose}>Close</Button>
+                    </Modal.Footer>
+                </Modal>
+                <div className="container-fluid">
+                    <h3>{ this.state.title }</h3>
+                    <hr />
+                    
+                    <Grid fluid>
+                        <Row className="show-grid">
+                            <Col xs={12} md={2}><Sidebar /></Col>
+                            <Col xs={12} md={10}>
+                            <div className="container-fluid">
+                                <h4>Companies list ...</h4>
+                                <Button bsStyle="primary" onClick={this.handleShow}>Add new company</Button>
+                                <hr />
+                                <BootstrapTable data={this.state.items} 
+                                    striped 
+                                    hover 
+                                    pagination 
+                                    selectRow={ selectRowProp } 
+                                    deleteRow={ true } 
+                                    options={ options }
+                                    search={ true } 
+                                    multiColumnSearch={ true }
+                                    
+                                    >
+                                    <TableHeaderColumn isKey dataField='id' hidden>ID</TableHeaderColumn>
+                                    <TableHeaderColumn dataField='name' dataSort={true}>Name</TableHeaderColumn>
+                                    <TableHeaderColumn dataField='siret'>Siret</TableHeaderColumn>
+                                    <TableHeaderColumn dataField='address'> Address</TableHeaderColumn>
+                                    <TableHeaderColumn dataField='postalCode' dataSort={true}>Postal code</TableHeaderColumn>
+                                    <TableHeaderColumn dataField='city' dataSort={true}>City</TableHeaderColumn>
+                                    <TableHeaderColumn dataField='country' dataSort={true}>Country</TableHeaderColumn>
+                                    <TableHeaderColumn dataField=''>actions</TableHeaderColumn>
+                                </BootstrapTable>
+                            </div>
+                            </Col>
+                        </Row>
+                    </Grid>
+                </div> 
             </div>   
         );
     }

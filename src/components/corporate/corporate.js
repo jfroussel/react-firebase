@@ -27,8 +27,11 @@ class Corporate extends Component {
         
         return (
             <div className="container-fluid">
+            <h3>{ this.state.title }</h3>
+                <hr />
                 <Grid fluid>
                     <Row>
+                        
                         <Col xs={12} md={2}>
                        
                         <Link to={routes.COMPANIES}> 
@@ -65,8 +68,7 @@ class Corporate extends Component {
                     </Row>
                 </Grid>
                 <hr />
-                <h3>{ this.state.title }</h3>
-                <hr />
+                
             </div> 
         )
     }
