@@ -1,14 +1,22 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import  '../../index.css';
-import * as routes from '../../constants/routes';
-import { Grid, Col, Image, Row, Popover, OverlayTrigger} from 'react-bootstrap';
-import imgCompanies from '../../img/city.png';
-import imgContacts from '../../img/people.png';
-import imgOpportunities from '../../img/opportunities.png';
-import imgProjects from '../../img/projects.png';
-import imgTasks from '../../img/tasks.png';
-
+import React, {Component} from 'react';
+import '../../index.css';
+import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+import {
+    Grid,
+    Col,
+    Image,
+    Row,
+    Popover,
+    OverlayTrigger
+} from 'react-bootstrap';
+import Sidebar from '../Sidebar';
+import Companies from './companies';
+import Contacts from './contacts';
+import Tasks from './tasks';
+import Opportunities from './opportunities';
+import Projects from './projects';
+import Imports from './imports';
+import Documents from './documents';
 
 class Corporate extends Component {
     constructor(props) {
@@ -16,68 +24,38 @@ class Corporate extends Component {
         super(props);
 
         this.state = {
-            title:'Welcome to the Corporate page ...'
-           
+            title: 'Welcome to the Corporate page ...'
         };
-        
     }
 
-    
     render() {
-        
         return (
+
             <div className="container-fluid">
-            <h3>{ this.state.title }</h3>
-                <hr />
                 <Grid fluid>
-                    <Row>
-                        
+                    <Row className="show-grid">
                         <Col xs={12} md={2}>
-                       
-                        <Link to={routes.COMPANIES}> 
-                        <OverlayTrigger
-                            trigger={['hover', 'focus']}
-                            placement="bottom"
-                            overlay={popoverHoverFocus}
-                        >
-                            <Image src={imgCompanies} circle/>
-                        </OverlayTrigger>
-                        </Link>
-                        
+                            <Sidebar/>
                         </Col>
-                        <Col xs={12} md={2}>
-                        <Link to={routes.CONTACTS}>
-                            <Image src={imgContacts} circle />
-                        </Link>
-                        </Col>
-                        <Col xs={12} md={2}>
-                        <Link to={routes.OPPORTUNITIES}>
-                            <Image src={imgOpportunities} circle />
-                        </Link>
-                        </Col>
-                        <Col xs={12} md={2}>
-                        <Link to={routes.PROJECTS}>
-                            <Image src={imgProjects} circle />
-                        </Link>
-                        </Col>
-                        <Col xs={12} md={2}>
-                        <Link to={routes.TASKS}>
-                            <Image src={imgTasks} circle />
-                        </Link>
+                        <Col xs={12} md={10}>
+                            <div className="container-fluid">
+                                <Switch>
+                                    
+                                    <Route path="/companies" component={Companies}/>
+                                    <Route path="/contacts" component={Contacts}/>
+                                    <Route path="/tasks" component={Tasks}/>
+                                    <Route path="/opportunities" component={Opportunities}/>
+                                    <Route path="/projects" component={Projects}/>
+                                    <Route path="/documents" component={Documents}/>
+                                    <Route path="/imports" component={Imports}/>
+                                </Switch>
+                            </div>
                         </Col>
                     </Row>
                 </Grid>
-                <hr />
-                
-            </div> 
+            </div>
         )
     }
 }
-
-const popoverHoverFocus = (
-    <Popover id="popover-trigger-hover-focus" title >
-        <strong>Click to go there !.</strong> 
-    </Popover>
-);
 
 export default Corporate;

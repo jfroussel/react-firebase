@@ -15,4 +15,6 @@ export const CONTACTS = '/corporate/contacts';
 export const OPPORTUNITIES = '/corporate/opportunities';
 export const TASKS = '/corporate/tasks';
 export const PROJECTS = '/corporate/projects';
+export const DOCUMENTS = '/corporate/documents';
+export const IMPORTS = '/corporate/imports';
 
