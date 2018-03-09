@@ -1,6 +1,4 @@
-import React, { Component } from 'react';
-import { Image} from 'react-bootstrap';
-import imgOpportunities from '../../img/opportunities.png';
+import React, {Component} from 'react';
 
 class Opportunities extends Component {
     constructor(props) {
@@ -8,18 +6,16 @@ class Opportunities extends Component {
         super(props);
 
         this.state = {
-            title:'Welcome to the opportunities page ...'
+            title: 'Welcome to the opportunities page ...'
         };
-        
     }
 
     render() {
 
         return (
             <div className="container-fluid">
-            <Image src={imgOpportunities} circle/>
-                <h3>{ this.state.title }</h3>
-            </div>        
+                <h3>{this.state.title}</h3>
+            </div>
         )
     }
 }

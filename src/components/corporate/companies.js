@@ -18,8 +18,8 @@ class Companies extends Component {
             city: '',
             country: '',
             items: [],
-            show: false,
-            lolo:'welcome lolo'
+            show: false
+
         };
 
         this.handleChange = this
@@ -44,7 +44,7 @@ class Companies extends Component {
         });
     }
 
-    handleSubmit(e) { 
+    handleSubmit(e) {
         e.preventDefault();
         const itemsRef = firebase
             .database()
@@ -66,7 +66,7 @@ class Companies extends Component {
             postalCode: '',
             city: '',
             country: ''
-        }); 
+        });
     }
 
     handleClose() {
@@ -75,7 +75,7 @@ class Companies extends Component {
 
     handleShow() {
         this.setState({show: true});
-    } 
+    }
 
     componentDidMount() {
         const itemsRef = firebase
@@ -83,16 +83,18 @@ class Companies extends Component {
             .ref('companies');
         itemsRef.on('value', (snapshot) => {
             let items = snapshot.val();
+
             let newState = [];
             for (let item in items) {
+
                 newState.push({
                     id: item,
-                    name: items[item].name,
-                    siret: items[item].siret,
-                    address: items[item].address,
-                    postalCode: items[item].postalCode,
-                    city: items[item].city,
-                    country: items[item].country
+                    name: items[item].L1_DECLAREE,
+                    siret: items[item].SIREN,
+                    address: items[item].L4_NORMALISEE,
+                    postalCode: items[item].CODPOS,
+                    city: items[item].LIBCOM,
+                    country: items[item].L7_NORMALISEE
                 });
             }
             this.setState({items: newState});
@@ -201,9 +203,8 @@ class Companies extends Component {
                             <Col xs={12} md={10}>
                                 <div className="container-fluid">
                                     <h4>Companies list ...</h4>
-                            
-                                  
-                                    <Button bsStyle="primary" onClick={this.handleShow}>{this.state.lolo}</Button>
+
+                                    <Button bsStyle="primary" onClick={this.handleShow}>Add new company</Button>
                                     <hr/>
                                     <BootstrapTable
                                         data={this.state.items}
@@ -215,13 +216,13 @@ class Companies extends Component {
                                         options={options}
                                         search={true}
                                         multiColumnSearch={true}>
-                                        <TableHeaderColumn isKey dataField='id' hidden>ID</TableHeaderColumn>
-                                        <TableHeaderColumn dataField='name' dataSort={true}>Name</TableHeaderColumn>
-                                        <TableHeaderColumn dataField='siret'>Siret</TableHeaderColumn>
-                                        <TableHeaderColumn dataField='address'>Address</TableHeaderColumn>
-                                        <TableHeaderColumn dataField='postalCode' dataSort={true}>Postal code</TableHeaderColumn>
-                                        <TableHeaderColumn dataField='city' dataSort={true}>City</TableHeaderColumn>
-                                        <TableHeaderColumn dataField='country' dataSort={true}>Country</TableHeaderColumn>
+                                        <TableHeaderColumn isKey dataField='id'>ID</TableHeaderColumn>
+                                        <TableHeaderColumn dataField='L1_DECLAREE' dataSort={true}>Name</TableHeaderColumn>
+                                        <TableHeaderColumn dataField='SIREN'>Siren</TableHeaderColumn>
+                                        <TableHeaderColumn dataField='L4_NORMALISEE'>Address</TableHeaderColumn>
+                                        <TableHeaderColumn dataField='CODPOS' dataSort={true}>Postal code</TableHeaderColumn>
+                                        <TableHeaderColumn dataField='LIBCOM:' dataSort={true}>City</TableHeaderColumn>
+                                        <TableHeaderColumn dataField='L7_NORMALISEE' dataSort={true}>Country</TableHeaderColumn>
                                         <TableHeaderColumn dataField=''>actions</TableHeaderColumn>
                                     </BootstrapTable>
                                 </div>

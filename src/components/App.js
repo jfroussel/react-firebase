@@ -18,6 +18,9 @@ import Companies from './corporate/companies';
 import Opportunities from './corporate/opportunities';
 import Projects from './corporate/projects';
 import Tasks from './corporate/tasks';
+import Documents from './corporate/documents';
+import Calendars from './corporate/calendars';
+import Imports from './corporate/imports';
 
 import * as routes from '../constants/routes';
 
@@ -105,6 +108,18 @@ class App extends Component {
            <Route
             exact path={routes.TASKS}
             component={() => <Tasks />}
+          />
+          <Route
+            exact path={routes.CALENDARS}
+            component={() => <Calendars />}
+          />
+          <Route
+            exact path={routes.DOCUMENTS}
+            component={() => <Documents />}
+          />
+          <Route
+            exact path={routes.IMPORTS}
+            component={() => <Imports />}
           />
 
         </div>

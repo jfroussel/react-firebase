@@ -17,4 +17,5 @@ export const TASKS = '/corporate/tasks';
 export const PROJECTS = '/corporate/projects';
 export const DOCUMENTS = '/corporate/documents';
 export const IMPORTS = '/corporate/imports';
+export const CALENDARS = '/corporate/calendars';
 

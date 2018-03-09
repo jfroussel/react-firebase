@@ -1,49 +1,53 @@
 import React, {Component} from 'react';
-import * as Icon from 'react-feather';
 import {Link} from 'react-router-dom';
 import * as routes from '../constants/routes';
 import {Nav, NavItem, Glyphicon} from 'react-bootstrap';
 
-function handleSelect(selectedKey) {
-  alert(`selected ${selectedKey}`);
-}
+
 
 class Sidebar extends Component {
   render() {
     return (
       <div>
         <Nav bsStyle="pills" stacked activeKey={1}>
-          <NavItem>
+          <NavItem componentClass={Link} href="/" to={routes.CALENDARS}>
             <span className="sidebar-icon"><Glyphicon glyph="calendar"/></span>
-            Calendar
+            Calendars
           </NavItem>
-          <NavItem>
+
+          <NavItem componentClass={Link} href="/" to={routes.COMPANIES}>
             <span className="sidebar-icon"><Glyphicon glyph="globe"/></span>
-            <Link to={routes.COMPANIES}>Companies</Link>
+            Companies
           </NavItem>
-          <NavItem>
+
+          <NavItem componentClass={Link} href="/" to={routes.CONTACTS}>
             <span className="sidebar-icon"><Glyphicon glyph="user"/></span>
-            <Link to={routes.CONTACTS}>Contacts</Link>
+            Contacts
           </NavItem>
-          <NavItem>
+
+          <NavItem componentClass={Link} href="/" to={routes.TASKS}>
             <span className="sidebar-icon"><Glyphicon glyph="th-list"/></span>
-            <Link to={routes.TASKS}>Tasks</Link>
+            Tasks
           </NavItem>
-          <NavItem>
+
+          <NavItem componentClass={Link} href="/" to={routes.OPPORTUNITIES}>
             <span className="sidebar-icon"><Glyphicon glyph="stats"/></span>
-            <Link to={routes.OPPORTUNITIES}>Opportunities</Link>
+            Opportunities
           </NavItem>
-          <NavItem>
+
+          <NavItem componentClass={Link} href="/" to={routes.PROJECTS}>
             <span className="sidebar-icon"><Glyphicon glyph="briefcase"/></span>
-            <Link to={routes.PROJECTS}>Projects</Link>
+            Projects
           </NavItem>
-          <NavItem>
+
+          <NavItem componentClass={Link} href="/" to={routes.DOCUMENTS}>
             <span className="sidebar-icon"><Glyphicon glyph="folder-open"/></span>
-            <Link to={routes.DOCUMENTS}>Documents</Link>
+            Documents
           </NavItem>
-          <NavItem>
+
+          <NavItem componentClass={Link} href="/" to={routes.IMPORTS}>
             <span className="sidebar-icon"><Glyphicon glyph="folder-open"/></span>
-            <Link to={routes.IMPORTS}>Imports</Link>
+            Imports
           </NavItem>
         </Nav>
       </div>
