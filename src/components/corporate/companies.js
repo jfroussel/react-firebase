@@ -4,6 +4,7 @@ import {Grid, Row, Col, Button, Modal} from 'react-bootstrap';
 import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
 import Sidebar from '../Sidebar';
 
+
 class Companies extends Component {
     constructor(props) {
 
@@ -20,6 +21,7 @@ class Companies extends Component {
             items: [],
             show: false
 
+
         };
 
         this.handleChange = this
@@ -35,6 +37,10 @@ class Companies extends Component {
             .bind(this);
         this.handleClose = this
             .handleClose
+            .bind(this);
+
+        this.removeCompanies = this
+            .removeCompanies
             .bind(this);
     }
 
@@ -83,7 +89,7 @@ class Companies extends Component {
             .ref('companies');
         itemsRef.on('value', (snapshot) => {
             let items = snapshot.val();
-
+            console.log(items)
             let newState = [];
             for (let item in items) {
 
@@ -91,7 +97,7 @@ class Companies extends Component {
                     id: item,
                     name: items[item].L1_DECLAREE,
                     siret: items[item].SIREN,
-                    address: items[item].L4_NORMALISEE,
+                    address: items[item].L4_DECLAREE,
                     postalCode: items[item].CODPOS,
                     city: items[item].LIBCOM,
                     country: items[item].L7_NORMALISEE
@@ -106,6 +112,13 @@ class Companies extends Component {
             .database()
             .ref(`/companies/${itemId}`);
         itemRef.remove();
+    }
+
+    removeCompanies() {
+        const companies = firebase
+            .database()
+            .ref('companies')
+            .remove();
     }
 
     render() {
@@ -204,7 +217,9 @@ class Companies extends Component {
                                 <div className="container-fluid">
                                     <h4>Companies list ...</h4>
 
-                                    <Button bsStyle="primary" onClick={this.handleShow}>Add new company</Button>
+                                    <Button bsStyle="default" onClick={this.handleShow}>Add new company</Button>
+                                    <Button bsStyle="default" onClick={this.removeCompanies}>Remove companies</Button>
+                                    
                                     <hr/>
                                     <BootstrapTable
                                         data={this.state.items}
@@ -217,12 +232,12 @@ class Companies extends Component {
                                         search={true}
                                         multiColumnSearch={true}>
                                         <TableHeaderColumn isKey dataField='id'>ID</TableHeaderColumn>
-                                        <TableHeaderColumn dataField='L1_DECLAREE' dataSort={true}>Name</TableHeaderColumn>
-                                        <TableHeaderColumn dataField='SIREN'>Siren</TableHeaderColumn>
-                                        <TableHeaderColumn dataField='L4_NORMALISEE'>Address</TableHeaderColumn>
-                                        <TableHeaderColumn dataField='CODPOS' dataSort={true}>Postal code</TableHeaderColumn>
-                                        <TableHeaderColumn dataField='LIBCOM:' dataSort={true}>City</TableHeaderColumn>
-                                        <TableHeaderColumn dataField='L7_NORMALISEE' dataSort={true}>Country</TableHeaderColumn>
+                                        <TableHeaderColumn dataField='name' dataSort={true}>Name</TableHeaderColumn>
+                                        <TableHeaderColumn dataField='siret'>Siren</TableHeaderColumn>
+                                        <TableHeaderColumn dataField='address'>Address</TableHeaderColumn>
+                                        <TableHeaderColumn dataField='postalCode' dataSort={true}>Postal code</TableHeaderColumn>
+                                        <TableHeaderColumn dataField='city' dataSort={true}>City</TableHeaderColumn>
+                                        <TableHeaderColumn dataField='country' dataSort={true}>Country</TableHeaderColumn>
                                         <TableHeaderColumn dataField=''>actions</TableHeaderColumn>
                                     </BootstrapTable>
                                 </div>
